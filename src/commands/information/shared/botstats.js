@@ -32,8 +32,7 @@ module.exports = (client) => {
   desc += `❒ Total guilds: ${guilds}\n`;
   desc += `❒ Total users: ${users}\n`;
   desc += `❒ Total channels: ${channels}\n`;
-  desc += `❒ Websocket Ping: ${client.ws.ping} ms\n`;
-  desc += "\n";
+  desc += `❒ Websocket Ping: ${client.ws.ping} ms\n\n`;
 
   const embed = new EmbedBuilder()
     .setTitle("Bot Information")
@@ -81,20 +80,38 @@ module.exports = (client) => {
     );
 
   // Buttons
-  let components = [];
-  components.push(new ButtonBuilder().setLabel("Invite Link").setURL(client.getInvite()).setStyle(ButtonStyle.Link));
+  const components = [];
 
-  if (SUPPORT_SERVER) {
-    components.push(new ButtonBuilder().setLabel("Support Server").setURL(SUPPORT_SERVER).setStyle(ButtonStyle.Link));
-  }
+  // Invite button (guaranteed valid URL)
+  const inviteURL = `https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`;
+  components.push(
+    new ButtonBuilder()
+      .setLabel("Invite Link")
+      .setURL(inviteURL)
+      .setStyle(ButtonStyle.Link)
+  );
 
-  if (DASHBOARD.enabled) {
+  // Support server button (only if valid URL)
+  if (SUPPORT_SERVER && SUPPORT_SERVER.startsWith("http")) {
     components.push(
-      new ButtonBuilder().setLabel("Dashboard Link").setURL(DASHBOARD.baseURL).setStyle(ButtonStyle.Link)
+      new ButtonBuilder()
+        .setLabel("Support Server")
+        .setURL(SUPPORT_SERVER)
+        .setStyle(ButtonStyle.Link) 
     );
   }
 
-  let buttonsRow = new ActionRowBuilder().addComponents(components);
+  // Dashboard button (only if enabled and valid URL)
+  if (DASHBOARD.enabled && DASHBOARD.baseURL && DASHBOARD.baseURL.startsWith("http")) {
+    components.push(
+      new ButtonBuilder()
+        .setLabel("Dashboard Link")
+        .setURL(DASHBOARD.baseURL)
+        .setStyle(ButtonStyle.Link)
+    );
+  }
+
+  const buttonsRow = new ActionRowBuilder().addComponents(components);
 
   return { embeds: [embed], components: [buttonsRow] };
 };
