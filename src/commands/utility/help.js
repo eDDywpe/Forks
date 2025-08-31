@@ -37,7 +37,6 @@ module.exports = {
     ],
   },
 
-  /** Message Command */
   async messageRun(message, args, data) {
     const trigger = args[0];
     const user = message.author;
@@ -57,36 +56,36 @@ module.exports = {
     await message.safeReply("No matching command found");
   },
 
-  /** Slash Command */
   async interactionRun(interaction) {
     const cmdName = interaction.options.getString("command");
     const user = interaction.user;
 
     if (!cmdName) {
-      // Defer first for async response
-      await interaction.deferReply();
       const response = await getHelpMenu(interaction, user);
-      const sentMsg = await interaction.editReply(response);
+      const sentMsg = await interaction.followUp(response);
       return waiter(sentMsg, user.id);
     }
 
     const cmd = interaction.client.slashCommands.get(cmdName);
     if (cmd) {
-      // Direct reply for single command
       const embed = getSlashUsage(cmd);
-      return interaction.reply({ embeds: [embed] });
+      return interaction.followUp({ embeds: [embed] });
     }
 
-    return interaction.reply("No matching command found");
+    await interaction.followUp("No matching command found");
   },
 };
 
-/** Generates the main help menu embed */
+/**
+ * Generates the main help menu embed
+ * @param {Message|CommandInteraction} source
+ * @param {User} user
+ */
 async function getHelpMenu(source, user) {
   const client = source.client;
 
   const options = Object.entries(CommandCategory)
-    .filter(([_, v]) => v.enabled !== false)
+    .filter(([k, v]) => v.enabled !== false)
     .map(([k, v]) => ({
       label: v.name,
       value: k,
@@ -129,7 +128,9 @@ async function getHelpMenu(source, user) {
   return { embeds: [embed], components: [menuRow, buttonsRow] };
 }
 
-/** Handles help menu buttons/selection */
+/**
+ * Handles help menu buttons/selection
+ */
 const waiter = (msg, userId, prefix) => {
   const collector = msg.channel.createMessageComponentCollector({
     filter: (reactor) => reactor.user.id === userId && msg.id === reactor.message.id,
@@ -184,7 +185,9 @@ const waiter = (msg, userId, prefix) => {
   });
 };
 
-/** Generates message command embeds */
+/**
+ * Helper: Generates message command embeds
+ */
 function getMsgCategoryEmbeds(client, category, prefix) {
   const commands = client.commands.filter(cmd => cmd.category === category);
   if (!commands.length) return [
@@ -202,7 +205,9 @@ function getMsgCategoryEmbeds(client, category, prefix) {
   return [embed];
 }
 
-/** Generates slash command embeds */
+/**
+ * Helper: Generates slash command embeds
+ */
 function getSlashCategoryEmbeds(client, category) {
   const commands = Array.from(client.slashCommands.filter(cmd => cmd.category === category).values());
   if (!commands.length) return [
