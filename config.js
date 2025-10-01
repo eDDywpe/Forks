@@ -60,9 +60,9 @@ module.exports = {
     LAVALINK_NODES: [
       {
         host: "181.215.45.8",
-        port: 2333,
-        password: "kirito",
-        id: "Public-TriniumHost",
+        port: 2334,
+        password: "free",
+        id: "Public-TriniumHost-Backup",
         secure: false,
       },
     ],
