@@ -59,10 +59,10 @@ module.exports = {
     // Refer to https://github.com/freyacodes/Lavalink to host your own lavalink server
     LAVALINK_NODES: [
       {
-        host: "173.249.0.115",
-        port: 13592,
-        password: "https://camming.xyz",
-        id: "Local Node",
+        host: "181.215.45.8",
+        port: 2333,
+        password: "kirito",
+        id: "Public-TriniumHost",
         secure: false,
       },
     ],
