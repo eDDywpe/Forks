@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexon | Best Discord Bot For Your Server</title>
+    <link rel="icon" type="image/x-icon" href="./images/browlogo.png">
+    <meta content="#dc2626" data-react-helmet="true" name="theme-color" />
+    <meta
+      name="title"
+      content="Nexon - Take Your Server to the Next Level"
+    />
+    <meta
+      name="description"
+      content="Nexon is a versatile Discord bot with features like giveaways, leveling, games, button roles, and a much more, designed to enhance server management and engagement."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="#" />
+    <meta
+      property="og:title"
+      content="Nexon - Take Your Server to the Next Level"
+    />
+    <meta
+      property="og:description"
+      content="Nexon is a versatile Discord bot with features like giveaways, leveling, Minecraft server status tracking, games, button roles, and a much more, designed to enhance server management and engagement."
+    />
+    <meta property="og:image" content="./images/logo.png" />
+    <meta property="og:color" content="#5b21b6" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="#" />
+    <meta
+      property="twitter:title"
+      content="Nexon - Take Your Server to the Next Level"
+    />
+    <meta
+      property="twitter:description"
+      content="Nexon is a versatile Discord bot with features like giveaways, leveling, Minecraft server status tracking, games, button roles, and a much more, designed to enhance server management and engagement."
+    />
+    <meta property="twitter:image" content="./images/logo.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/script.js"></script>
+  </head>
+  <body
+    class="bg-black text-white max-h-[400px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-red-500"
+  >
+    <div
+      id="loader"
+      class="fixed inset-0 bg-black z-50 flex items-center justify-center"
+    >
+      <div
+        class="w-12 h-12 border-4 border-red-500 border-t-transparent rounded-full animate-spin"
+      ></div>
+    </div>
+    <nav class="fixed w-full z-50 top-0">
+      <div class="nav-blur bg-black/30 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-20">
+            <div class="flex items-center gap-2">
+              <img
+                src="images/browlogo.png"
+                alt="Nexon Logo"
+                class="w-10 h-10 rounded-lg"
+              />
+              <a href="index.html">
+              <span
+                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-700"
+                >NEXON</span></a>
+            </div>
+
+            <div class="hidden md:flex gap-8">
+              <a
+                href="index.html"
+                class="text-white/70 hover:text-white transition-colors"
+                >Home</a
+              >
+              <a
+                href="index.html#features"
+                class="text-white/70 hover:text-white transition-colors"
+                >Features</a
+              >
+              <a
+                href="#commands"
+                class="text-white/70 hover:text-white transition-colors"
+                >Commands</a
+              >
+              <a
+                href="index.html#testimonials"
+                class="text-white/70 hover:text-white transition-colors"
+                >Testimonials</a
+              >
+              <a
+                href="#testimonials"
+                class="text-white/70 hover:text-white transition-colors"
+                >Dashboard</a
+              >
+            </div>
+
+            <div class="md:hidden">
+              <button onclick="toggleMobileMenu()" class="text-white p-2">
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    class="menu-icon"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+
+            <a href="https://discord.com/oauth2/authorize?client_id=942834341476708444&scope=bot&permissions=8&redirect_uri=https%3A%2F%2Fnexonbot.xyz&response_type=code" class="hidden md:block">
+              <button
+                class="bg-white/10 hover:bg-white/20 px-6 py-2 rounded-lg transition-all duration-300"
+              >
+                Add to Discord
+              </button>
+            </a>
+          </div>
+          
+
+          <div id="mobileMenu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-black/50 rounded-lg mt-2">
+              <a
+                href="index.html"
+                class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
+                >Home</a
+              >
+              <a
+                href="index.html#features"
+                class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
+                >Features</a
+              >
+              <a
+                href="#commands"
+                class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
+                >Commands</a
+              >
+              <a
+                href="index.html#testimonials"
+                class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
+                >Testimonials</a
+              >
+               <a
+                href="#testimonials"
+                class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
+                >Dashboard</a
+              >
+              <a
+                href="https://discord.com/oauth2/authorize?client_id=942834341476708444&scope=bot&permissions=8&redirect_uri=https%3A%2F%2Fnexonbot.xyz&response_type=code"
+                class="block px-3 py-2 text-white/70 hover:text-white transition-colors"
+                >Add to Discord</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+
+    <section id="commands" class="py-32 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-20">
+          <h2 class="text-5xl font-bold mb-4">Commands</h2>
+          <p class="text-xl text-white/70">
+            Explore all available bot commands
+          </p>
+        </div>
+        <div class="space-y-6" id="commands-container"></div>
+      </div>
+    </section>
+    
+
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-center py-16">
+        <button
+          onclick="scrollToTop()"
+          class="group bg-white/5 border border-white/10 rounded-2xl p-4 transition-all hover:border-red-500"
+        >
+          <svg
+            class="w-6 h-6 text-white/70 group-hover:text-white transition-colors"
+            fill="none"
+            viewbox="0 0 24 24"
+            stroke="currentcolor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 10l7-7m0 0l7 7m-7-7v18"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <footer class="text-white py-16 border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div>
+            <img
+              class="h-10 mb-6"
+              src="./images/browlogo.png"
+              alt="Nexon Logo"
+            />
+            <p class="text-lg text-white/70">
+              Nexon — The ultimate Discord companion, 
+              packed with leveling, moderation, giveaways, 
+              and powerful tools to grow and manage your server effortlessly!
+            </p>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-4">
+              <li>
+                <a href="index.html" class="text-white/70 hover:text-white">Home</a>
+              </li>
+              <li>
+                <a href="index.html#features" class="text-white/70 hover:text-white"
+                  >Features</a
+                >
+              </li>
+              <li>
+                <a href="#commands" class="text-white/70 hover:text-white"
+                  >Commands</a
+                >
+              </li>
+              <li>
+                <a href="index.html#testimonials" class="text-white/70 hover:text-white"
+                  >Testimonials</a
+                >
+              </li>
+              <li>
+                <a href="#testimonials" class="text-white/70 hover:text-white"
+                  >Dashboard</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Follow Us</h4>
+            <ul class="space-y-4">
+              <li>
+                <a href="#" class="text-white/70 hover:text-white">Invite</a>
+              </li>
+              <li>
+                <a href="#" class="text-white/70 hover:text-white">Discord</a>
+              </li>
+              <li>
+                <a href="#" class="text-white/70 hover:text-white">GitHub</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-12 border-t border-white/20 pt-6 text-center">
+          <p class="text-sm text-white/50">
+            © 2026 Nexon. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
